@@ -5,8 +5,8 @@
 // REPLACE WITH THE MAC Address of your receiver 
 uint8_t broadcastAddress[] = {0xA4,0xCF,0x12,0x8D,0x0E,0x7C};
 
-float accX = 0.0F;  // Define variables for storing inertial sensor data
-float accY = 0.0F;  //定义存储惯性传感器相关数据的相关变量
+float accX = 0.0F;  
+float accY = 0.0F;  
 float accZ = 0.0F;
 
 float gyroX = 0.0F;
@@ -68,7 +68,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
  
 void setup() {
 
-  M5.begin(); //Init M5Core.  初始化 M5Core
+  M5.begin(); 
   M5.IMU.Init();
   M5.Lcd.begin(); 
   M5.Lcd.setTextSize(4);
@@ -109,8 +109,8 @@ void loop() {
 //  getReadings();
 
   M5.IMU.getGyroData(&gyroX,&gyroY,&gyroZ);
-  M5.IMU.getAccelData(&accX,&accY,&accZ); //Stores the triaxial accelerometer.  存储三轴加速度计数据
-  M5.IMU.getAhrsData(&pitch,&roll,&yaw);  //Stores the inertial sensor attitude.  存储惯性传感器的姿态
+  M5.IMU.getAccelData(&accX,&accY,&accZ); 
+  M5.IMU.getAhrsData(&pitch,&roll,&yaw);  
   M5.IMU.getTempData(&temp);
  
   // Set values to send
