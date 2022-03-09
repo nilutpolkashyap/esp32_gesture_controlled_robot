@@ -95,8 +95,7 @@ void setup() {
 void loop() {
 //  getReadings();
  
-  // Set values to send
-  BME280Readings.temp = temperature;
+\  BME280Readings.temp = temperature;
   BME280Readings.hum = humidity;
 
   // Send message via ESP-NOW
@@ -162,12 +161,6 @@ void updateDisplay(){
     digitalWrite(motor1Pin3, LOW);
     digitalWrite(motor1Pin4, LOW);
   }
-  
-//  Serial.println("INCOMING READINGS");
-//  Serial.print("Temperature: ");
-//  Serial.print(incomingReadings.temp);
-//  Serial.print("Humidity: ");
-//  Serial.print(incomingReadings.hum);
 
   Serial.println();
 }
