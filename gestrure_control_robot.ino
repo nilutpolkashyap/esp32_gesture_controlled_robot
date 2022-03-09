@@ -20,8 +20,6 @@ float incomingHum;
 // Variable to store if sending data was successful
 String success;
 
-//Structure example to send data
-//Must match the receiver structure
 typedef struct struct_message {
     float temp;
     float hum;
@@ -57,7 +55,6 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
 }
  
 void setup() {
-  // Init Serial Monitor
   Serial.begin(115200);
 
   pinMode(motor1Pin1, OUTPUT);
@@ -65,7 +62,6 @@ void setup() {
   pinMode(motor1Pin3, OUTPUT);
   pinMode(motor1Pin4, OUTPUT);
  
-  // Set device as a Wi-Fi Station
   WiFi.mode(WIFI_STA);
 
   // Init ESP-NOW
@@ -93,9 +89,8 @@ void setup() {
 }
  
 void loop() {
-//  getReadings();
  
-\  BME280Readings.temp = temperature;
+  BME280Readings.temp = temperature;
   BME280Readings.hum = humidity;
 
   // Send message via ESP-NOW
@@ -118,10 +113,6 @@ void getReadings(){
 }
 
 void updateDisplay(){
-
-  
-  // Display Readings in Serial Monitor
-
   if(incomingReadings.temp > 0.50)
   {
     Serial.println("LEFT");
