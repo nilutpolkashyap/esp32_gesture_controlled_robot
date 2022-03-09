@@ -30,8 +30,6 @@ float incomingHum;
 // Variable to store if sending data was successful
 String success;
 
-//Structure example to send data
-//Must match the receiver structure
 typedef struct struct_message {
     float temp;
     float hum;
@@ -74,10 +72,8 @@ void setup() {
   M5.Lcd.setTextSize(4);
   M5.Lcd.print("ROtate the device to control robot");
   
-  // Init Serial Monitor
   Serial.begin(115200);
  
-  // Set device as a Wi-Fi Station
   WiFi.mode(WIFI_STA);
 
   // Init ESP-NOW
@@ -106,7 +102,6 @@ void setup() {
 }
  
 void loop() {
-//  getReadings();
 
   M5.IMU.getGyroData(&gyroX,&gyroY,&gyroZ);
   M5.IMU.getAccelData(&accX,&accY,&accZ); 
@@ -127,6 +122,5 @@ void loop() {
   else {
     Serial.println("Error sending the data");
   }
-//  updateDisplay();
   delay(1000);
 }
